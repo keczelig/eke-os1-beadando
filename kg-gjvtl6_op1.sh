@@ -20,7 +20,7 @@ read_options(){
 	1) idojaras ;;
 	2) arfolyam ;;
 	3) napok ;;
-    4) szum ;;
+    	4) szum ;;
 	5) exit 0 ;;
     esac
 }
@@ -40,43 +40,28 @@ pause
 }
 
 arfolyam(){
-API_KEY="ae010c6bb8mshfe4aa3841a3214dp169e90jsnc21a8e19abba"
-API_HOST="currency-exchange.p.rapidapi.com"
-quantity=1
-from1=USD
-from2=EUR
-from3=CHF
-to=HUF
-
-function exchange1() {
-    echo ""
-    local API_URL="https://currency-exchange.p.rapidapi.com/exchange?q=1&from=$from1&to=$to"
-    local rate=$(curl -s --request GET --url $API_URL --header "x-rapidapi-host: $API_HOST" --header "x-rapidapi-key: $API_KEY")
-    local result=$(echo "$rate * $quantity" | bc)
-    echo $quantity $from1 = $result $to
-    
-    local API_URL="https://currency-exchange.p.rapidapi.com/exchange?q=1&from=$from2&to=$to"
-    local rate=$(curl -s --request GET --url $API_URL --header "x-rapidapi-host: $API_HOST" --header "x-rapidapi-key: $API_KEY")
-    local result=$(echo "$rate * $quantity" | bc)
-    echo $quantity $from2 = $result $to
-
-    local API_URL="https://currency-exchange.p.rapidapi.com/exchange?q=1&from=$from3&to=$to"
-    local rate=$(curl -s --request GET --url $API_URL --header "x-rapidapi-host: $API_HOST" --header "x-rapidapi-key: $API_KEY")
-    local result=$(echo "$rate * $quantity" | bc)
-    echo $quantity $from3 = $result $to
-    echo ""
-
-}
-    exchange1
+echo ""
+echo -n "1 USD = "
+curl --request GET \
+	--url 'https://currency-exchange.p.rapidapi.com/exchange?to=HUF&from=USD&q=1.0' \
+	--header 'x-rapidapi-host: currency-exchange.p.rapidapi.com' \
+	--header 'x-rapidapi-key: ae010c6bb8mshfe4aa3841a3214dp169e90jsnc21a8e19abba'
+echo " HUF"
+echo -n "1 EUR = "
+curl --request GET \
+	--url 'https://currency-exchange.p.rapidapi.com/exchange?to=HUF&from=EUR&q=1.0' \
+	--header 'x-rapidapi-host: currency-exchange.p.rapidapi.com' \
+	--header 'x-rapidapi-key: ae010c6bb8mshfe4aa3841a3214dp169e90jsnc21a8e19abba'
+echo " HUF"
+echo -n "1 CHF = "
+curl --request GET \
+	--url 'https://currency-exchange.p.rapidapi.com/exchange?to=HUF&from=CHF&q=1.0' \
+	--header 'x-rapidapi-host: currency-exchange.p.rapidapi.com' \
+	--header 'x-rapidapi-key: ae010c6bb8mshfe4aa3841a3214dp169e90jsnc21a8e19abba'
+echo " HUF"
+echo "" 
 	pause
 }
-
-datum(){
-
-    date
-	pause
-}
-
 
 szum(){
 echo ""
