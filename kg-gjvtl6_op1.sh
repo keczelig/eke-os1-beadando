@@ -7,7 +7,6 @@
 # http://wttr.in/
 # https://rapidapi.com/
 
-
 show_menus(){
         clear
     echo ""
@@ -33,17 +32,14 @@ read_options(){
     esac
 }
 
-
 pause(){
     read -p "A folytatashoz nyomd meg az [ENTER] billentyut..." fackEnterKey
 }
 
 idojaras(){
-
 echo ""
 curl -H "Accept-Language: hu" wttr.in?0
 echo ""
-
 pause
 }
 
@@ -80,7 +76,6 @@ read y
 (( sum=x+y ))
 echo -n "A te tipped:"
 read tipp
-
 if [ $sum == $tipp  ]
 then
 echo "Ugyes vagy!"
@@ -95,19 +90,14 @@ pause
 napok(){
 echo ""
 echo -n "Add meg a szuletesnapodat ebben a formaban (YYYY-MM-DD)"
-
 read bdate
 bdate=`date -d "${bdate}" +"%s"`
 current_date=`date +"%s"`
 echo ""
 echo $(($((bdate - current_date)) / -86400)) 'napos vagy.'
 echo ""
-
-
-
 pause
 }
-
 
 while true
 do
