@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#NEPTUNKÓD: GJVTL6
+
+#forras:
+# https://linuxzeal.wordpress.com/shell-script/create-menu-in-shell-script/
+# http://wttr.in/
+# https://rapidapi.com/
+
+
 show_menus(){
         clear
     echo ""
